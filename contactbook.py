@@ -1,4 +1,4 @@
-def file(name,phone):
+def file(Name,Phone):
     with open("contacts.txt","a") as f:
         f.write(f"{Name},{Phone}\n")
 while True:
@@ -8,8 +8,9 @@ while True:
         Name=input("Name: ")
         Phone=input("Phone: ")
         file(Name,Phone)
-    if (user==2):
+    elif (user==2):
         with open("contacts.txt", "r") as f:
+            next(f)    #to ignore the first line as it is empty
             for line in f:
                 Name, Phone = line.strip().split(",")
                 print(f"Name: {Name}, Phone: {Phone}")
